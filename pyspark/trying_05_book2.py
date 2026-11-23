@@ -36,7 +36,7 @@ dfx = spark.createDataFrame([('US', 512), ('France', 33), ('Germany', 0)])
 df_cross = df2.join(dfx) # or how='cross' with no on=
 df_cross.show(50)
 
-df_cross.write.csv('cross_joined.csv', mode='overwrite', header=True)
+df_cross.write.csv('cross_joined', mode='overwrite', header=True)
 # writes it in many files, partitioned by Country? hmm..
 df_cross.write.format('csv').option('header', True).save('cross_joined.csv', mode='overwrite')
 # see also format='delta'
